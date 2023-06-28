@@ -2,7 +2,24 @@
   <div>
     <h1>Lesson</h1>
     <p>This is a lesson</p>
-    <p>This is a chapter name: {{ $route.params.chapterSlug }}</p>
-    <p>This is a lesson name: {{ $route.params.lessonSlug }}</p>
+    <p>{{ chapter.title }} </p>
+    <p>{{ lesson.title }}</p>
   </div>
 </template>
+
+<script setup>
+  const course = useCourse()
+
+  const route = useRoute()
+
+  const chapter = computed(() => {
+    return course.chapters.find(
+      (chapter) => chapter.slug === route.params.chapterSlug)
+  })
+
+  const lesson = computed(() => {
+    return chapter.value.lessons.find(
+      (lesson) => lesson.slug === route.params.lessonSlug)
+  })
+
+</script>
