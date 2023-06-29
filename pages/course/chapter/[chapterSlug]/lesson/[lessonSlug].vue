@@ -43,10 +43,13 @@
       (lesson) => lesson.slug === route.params.lessonSlug)
   })
 
+  const title = computed(() => {
+    return `${lesson.value.title} - ${course.title}`
+  })
+
+  useHead({
+    title
+  })
+
 </script>
 
-<style scoped>
-  .router-link-active {
-    @apply text-blue-500;
-  }
-</style>
