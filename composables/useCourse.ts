@@ -7,7 +7,8 @@ type Lesson = {
   downloadUrl: string;
   videoId: number;
   text: string;
-  sourceUlr?: string;
+  sourceUrl?: string;
+  path: string;
 }
 
 type Chapter = {
