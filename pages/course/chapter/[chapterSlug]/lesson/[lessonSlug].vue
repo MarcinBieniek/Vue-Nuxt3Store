@@ -37,9 +37,11 @@
   const route = useRoute()
 
   definePageMeta({
-    middleware: function({params}, from) {
+    middleware: [
+      function({params}, from) {
 
       const course = useCourse();
+
       const chapter = course.chapters.find(
         (chapter) => chapter.slug === params.chapterSlug
       );
@@ -61,10 +63,14 @@
           createError({
           statusCode: 404,
           message: 'Lesson not found',
-        }));
-      }
-      return true;
-    },
+        })
+      );
+    }
+  },
+
+  'auth'
+
+  ],
   });
 
   const chapter = computed(() => {
