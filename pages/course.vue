@@ -58,6 +58,9 @@
 
 <script setup>
   const { chapters, title } = useCourse()
+  const user = useSupabaseUser();
+
+  console.log('user is ', user)
 
   const resetError = async (error) => {
     await navigateTo(
