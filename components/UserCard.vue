@@ -19,9 +19,9 @@
 <script setup lang="ts">
   const user = useSupabaseUser();
   const name = computed(
-    () => user?.value.user_metadata.full_name
+    () => user.value?.user_metadata.user_name
   );
   const profile = computed(
-    () => user?.value.user_metadata.avatar_url
+    () => user.value?.user_metadata.avatar_url
   );
 </script>
