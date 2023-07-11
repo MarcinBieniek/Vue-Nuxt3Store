@@ -4,6 +4,7 @@ import {
   Lesson,
   LessonWithPath
 } from '~/types/course'
+
 import course from '~/server/course'
 
 course as Course
