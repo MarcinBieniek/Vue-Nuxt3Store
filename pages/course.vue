@@ -4,7 +4,7 @@
 
       <div class="mb-4 flex justify-between items-center w-full">
         <h1 class="text-3xl">
-          <span class="font-bold">{{ title }}</span>
+          <span class="font-bold">{{ course.title }}</span>
         </h1>
         <UserCard />
       </div>
@@ -16,7 +16,7 @@
           <h3>Chapters</h3>
           <div
             class="space-y-1 mb-4 flex flex-col"
-            v-for="chapter of chapters"
+            v-for="chapter of course.chapters"
             :key="chapter.slug"
           >
             <h4>{{ chapter.title }}</h4>
@@ -56,15 +56,11 @@
 </template>
 
 <script setup>
-  const { chapters, title } = useCourse()
-  const user = useSupabaseUser();
-
-  console.log('user is ', user)
+  const course = await useCourse();
+  const firstLesson = await useFirstLesson();
 
   const resetError = async (error) => {
-    await navigateTo(
-      '/course/chapter/1-chapter-1/lesson/1-introduction-to-typescript-with-vue-js-3'
-    );
+    await navigateTo(firstLesson.path);
     error.value = null;
   };
 </script>
