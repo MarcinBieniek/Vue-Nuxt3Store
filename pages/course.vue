@@ -4,7 +4,7 @@
 
       <div class="mb-4 flex justify-between items-center w-full">
         <h1 class="text-3xl">
-          <span class="font-bold">{{ course.title }}</span>
+          <span class="font-bold">{{course.title }}</span>
         </h1>
         <UserCard />
       </div>
